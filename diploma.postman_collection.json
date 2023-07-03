@@ -1,0 +1,1984 @@
+{
+	"info": {
+		"_postman_id": "21d784fb-62b7-4290-a92e-eb9cace6ab99",
+		"name": "diploma",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16131548"
+	},
+	"item": [
+		{
+			"name": "register_and_get_token",
+			"item": [
+				{
+					"name": "user_registration",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"username\": {\"type\": \"string\"},",
+									"        \"first_name\": {\"type\": \"string\"},",
+									"        \"last_name\": {\"type\": \"string\"},",
+									"        \"email\": {\"type\": \"string\"}",
+									"    },",
+									"    \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.collectionVariables.set(\"userId\", responseData.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": {{email}},\n  \"username\": {{username}},\n  \"first_name\": \"Вася\",\n  \"last_name\": \"Пупкин\",\n  \"password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"auth_token\": {\"type\": \"string\"},",
+									"    },",
+									"    \"required\": [\"auth_token\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.collectionVariables.set(\"userToken\", responseData.auth_token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": {{email}},\n  \"password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/token/login/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create_second_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"username\": {\"type\": \"string\"},",
+									"        \"first_name\": {\"type\": \"string\"},",
+									"        \"last_name\": {\"type\": \"string\"},",
+									"        \"email\": {\"type\": \"string\"}",
+									"    },",
+									"    \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.collectionVariables.set(\"secondUserId\", responseData.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": {{secondUserEmail}},\n  \"username\": {{secondUserUsername}},\n  \"first_name\": \"Иван\",\n  \"last_name\": \"Иванов\",\n  \"password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_token_for_second_user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"auth_token\": {\"type\": \"string\"},",
+									"    },",
+									"    \"required\": [\"auth_token\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.collectionVariables.set(\"secondUserToken\", responseData.auth_token);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": {{secondUserEmail}},\n  \"password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/auth/token/login/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "user_list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"count\": {\"type\": \"number\"},",
+									"        \"next\": {\"type\": [\"number\", \"null\"]},",
+									"        \"previous\": {\"type\": [\"number\", \"null\"]},",
+									"        \"results\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"username\": {\"type\": \"string\"},",
+									"                    \"first_name\": {\"type\": \"string\"},",
+									"                    \"last_name\": {\"type\": \"string\"},",
+									"                    \"email\": {\"type\": \"string\"},",
+									"                    \"is_subscribed\": {\"type\": \"boolean\"}",
+									"                },",
+									"                \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        }",
+									"    },",
+									"    \"required\": [\"count\", \"next\", \"previous\", \"results\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "reset_password",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа - 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"current_password\": {{password}},\n    \"new_password\": {{password}}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/set_password/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"set_password",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user_me",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"username\": {\"type\": \"string\"},",
+									"        \"first_name\": {\"type\": \"string\"},",
+									"        \"last_name\": {\"type\": \"string\"},",
+									"        \"email\": {\"type\": \"string\"},",
+									"        \"is_subscribed\": {\"type\": \"boolean\"}",
+									"    },",
+									"    \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"    \"additionalProperties\": false,",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});",
+									"pm.test(\"Поле `is_subscribed` имеет значение `false`\", function () {",
+									"    pm.expect(",
+									"        responseData.is_subscribed,",
+									"        \"Значение поля `is_subscribed` при запросе к `users/me/` должно иметь значение `false`\"",
+									"    ).to.have.false",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Token 1c9f6142fcd8d84cfd2b865cee88d20d626cd74c",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/me/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_profile",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"username\": {\"type\": \"string\"},",
+									"        \"first_name\": {\"type\": \"string\"},",
+									"        \"last_name\": {\"type\": \"string\"},",
+									"        \"email\": {\"type\": \"string\"},",
+									"        \"is_subscribed\": {\"type\": \"boolean\"}",
+									"    },",
+									"    \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{userId}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{userId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Token {{userToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "tags",
+			"item": [
+				{
+					"name": "tag_list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"array\",",
+									"    \"items\": {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"id\": {\"type\": \"number\"},",
+									"            \"name\": {\"type\": \"string\"},",
+									"            \"color\": {\"type\": \"string\"},",
+									"            \"slug\": {\"type\": \"string\"},",
+									"        },",
+									"        \"required\": [\"id\", \"name\", \"color\", \"slug\"],",
+									"        \"additionalProperties\": false",
+									"    }",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.expect(",
+									"        responseData.length >= 2,",
+									"        \"Создайте как минимум два тега перд запуском коллекции\"",
+									"    )",
+									"    pm.collectionVariables.set(\"firstTagId\", responseData[0].id);",
+									"    pm.collectionVariables.set(\"secondTagId\", responseData[1].id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tags/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tags",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_tag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"name\": {\"type\": \"string\"},",
+									"        \"color\": {\"type\": \"string\"},",
+									"        \"slug\": {\"type\": \"string\"},",
+									"    },",
+									"    \"required\": [\"id\", \"name\", \"color\", \"slug\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/tags/{{first_tag_id}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"tags",
+								"{{first_tag_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ingredients",
+			"item": [
+				{
+					"name": "ingredients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"array\",",
+									"    \"items\": {",
+									"        \"type\": \"object\",",
+									"        \"properties\": {",
+									"            \"id\": {\"type\": \"number\"},",
+									"            \"name\": {\"type\": \"string\"},",
+									"            \"measurement_unit\": {\"type\": \"string\"},",
+									"        },",
+									"        \"required\": [\"id\", \"name\", \"measurement_unit\"],",
+									"        \"additionalProperties\": false",
+									"    }",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.expect(",
+									"        responseData.length >= 2,",
+									"        \"Создайте как минимум два ингридиента перд запуском коллекции\"",
+									"    )",
+									"    pm.collectionVariables.set(\"firstIndredientId\", responseData[0].id);",
+									"    pm.collectionVariables.set(\"secondIndredientId\", responseData[1].id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ingredients/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_ingredient",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"name\": {\"type\": \"string\"},",
+									"        \"measurement_unit\": {\"type\": \"string\"},",
+									"    },",
+									"    \"required\": [\"id\", \"name\", \"measurement_unit\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/ingredients/{{first_indredient_id}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"ingredients",
+								"{{first_indredient_id}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "recipes",
+			"item": [
+				{
+					"name": "create_recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseData = pm.response.json();",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"tags\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"color\": {\"type\": \"string\"},",
+									"                    \"slug\": {\"type\": \"string\"},",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"color\", \"slug\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        },",
+									"        \"author\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {\"type\": \"number\"},",
+									"                \"username\": {\"type\": \"string\"},",
+									"                \"first_name\": {\"type\": \"string\"},",
+									"                \"last_name\": {\"type\": \"string\"},",
+									"                \"email\": {\"type\": \"string\"},",
+									"                \"is_subscribed\": {\"type\": \"boolean\"}",
+									"            },",
+									"            \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"            \"additionalProperties\": false",
+									"        },",
+									"        \"ingredients\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"measurement_unit\": {\"type\": \"string\"},",
+									"                    \"amount\": {\"type\": \"number\"}",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"measurement_unit\", \"amount\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        },",
+									"        \"is_favorited\": {\"type\": \"boolean\"},",
+									"        \"is_in_shopping_cart\": {\"type\": \"boolean\"},",
+									"        \"name\": {\"type\": \"string\"},",
+									"        \"image\": {\"type\": \"string\"},",
+									"        \"text\": {\"type\": \"string\"},",
+									"        \"cooking_time\": {\"type\": \"number\"}",
+									"    },",
+									"    \"required\": [",
+									"        \"id\", \"tags\", \"author\", \"ingredients\", \"is_favorited\", \"is_in_shopping_cart\",",
+									"        \"name\", \"image\", \"text\", \"cooking_time\"",
+									"    ],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"    pm.collectionVariables.set(\"recipeId\", responseData.id);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 10\n    },\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": 20\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто съедобное (это не точно)\",\n  \"text\": \"Приготовьте как нибудь эти ингридиеты\",\n  \"cooking_time\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "recipes_list",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Должны ли быть поля `is_favorited` и `is_in_shopping_cart` для незалогиненого пользователя?",
+									"",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"required\": [\"count\", \"next\", \"previous\", \"results\"],",
+									"    \"additionalProperties\": false,",
+									"    \"properties\": {",
+									"        \"count\": {\"type\": \"number\"},",
+									"        \"next\": {\"type\": [\"number\", \"null\"]},",
+									"        \"previous\": {\"type\": [\"number\", \"null\"]},",
+									"        \"results\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\":{",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"tags\": {",
+									"                        \"type\": \"array\",",
+									"                        \"items\": {",
+									"                            \"type\": \"object\",",
+									"                            \"properties\": {",
+									"                                \"id\": {\"type\": \"number\"},",
+									"                                \"name\": {\"type\": \"string\"},",
+									"                                \"color\": {\"type\": \"string\"},",
+									"                                \"slug\": {\"type\": \"string\"},",
+									"                            },",
+									"                            \"required\": [\"id\", \"name\", \"color\", \"slug\"],",
+									"                            \"additionalProperties\": false",
+									"                        }",
+									"                    },",
+									"                    \"author\": {",
+									"                        \"type\": \"object\",",
+									"                        \"properties\": {",
+									"                            \"id\": {\"type\": \"number\"},",
+									"                            \"username\": {\"type\": \"string\"},",
+									"                            \"first_name\": {\"type\": \"string\"},",
+									"                            \"last_name\": {\"type\": \"string\"},",
+									"                            \"email\": {\"type\": \"string\"},",
+									"                            \"is_subscribed\": {\"type\": \"boolean\"}",
+									"                        },",
+									"                        \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"                        \"additionalProperties\": false",
+									"                    },",
+									"                    \"ingredients\": {",
+									"                        \"type\": \"array\",",
+									"                        \"items\": {",
+									"                            \"type\": \"object\",",
+									"                            \"properties\": {",
+									"                                \"id\": {\"type\": \"number\"},",
+									"                                \"name\": {\"type\": \"string\"},",
+									"                                \"measurement_unit\": {\"type\": \"string\"},",
+									"                                \"amount\": {\"type\": \"number\"}",
+									"                            },",
+									"                            \"required\": [\"id\", \"name\", \"measurement_unit\", \"amount\"],",
+									"                            \"additionalProperties\": false",
+									"                        }",
+									"                    },",
+									"                    \"is_favorited\": {\"type\": \"boolean\"},",
+									"                    \"is_in_shopping_cart\": {\"type\": \"boolean\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"image\": {\"type\": \"string\"},",
+									"                    \"text\": {\"type\": \"string\"},",
+									"                    \"cooking_time\": {\"type\": \"number\"}",
+									"                },",
+									"                \"required\": [",
+									"                    \"id\", \"tags\", \"author\", \"ingredients\", \"is_favorited\", \"is_in_shopping_cart\",",
+									"                    \"name\", \"image\", \"text\", \"cooking_time\"",
+									"                ],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        }",
+									"        ",
+									"    }",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Должны ли быть поля `is_favorited` и `is_in_shopping_cart` для незалогиненого пользователя?",
+									"",
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"tags\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"color\": {\"type\": \"string\"},",
+									"                    \"slug\": {\"type\": \"string\"},",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"color\", \"slug\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        },",
+									"        \"author\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {\"type\": \"number\"},",
+									"                \"username\": {\"type\": \"string\"},",
+									"                \"first_name\": {\"type\": \"string\"},",
+									"                \"last_name\": {\"type\": \"string\"},",
+									"                \"email\": {\"type\": \"string\"},",
+									"                \"is_subscribed\": {\"type\": \"boolean\"}",
+									"            },",
+									"            \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"            \"additionalProperties\": false",
+									"        },",
+									"        \"ingredients\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"measurement_unit\": {\"type\": \"string\"},",
+									"                    \"amount\": {\"type\": \"number\"}",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"measurement_unit\", \"amount\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        },",
+									"        \"is_favorited\": {\"type\": \"boolean\"},",
+									"        \"is_in_shopping_cart\": {\"type\": \"boolean\"},",
+									"        \"name\": {\"type\": \"string\"},",
+									"        \"image\": {\"type\": \"string\"},",
+									"        \"text\": {\"type\": \"string\"},",
+									"        \"cooking_time\": {\"type\": \"number\"}",
+									"    },",
+									"    \"required\": [",
+									"        \"id\", \"tags\", \"author\", \"ingredients\", \"is_favorited\", \"is_in_shopping_cart\",",
+									"        \"name\", \"image\", \"text\", \"cooking_time\"",
+									"    ],",
+									"    \"additionalProperties\": false",
+									"}",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipeId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_recipe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"tags\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"color\": {\"type\": \"string\"},",
+									"                    \"slug\": {\"type\": \"string\"},",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"color\", \"slug\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        },",
+									"        \"author\": {",
+									"            \"type\": \"object\",",
+									"            \"properties\": {",
+									"                \"id\": {\"type\": \"number\"},",
+									"                \"username\": {\"type\": \"string\"},",
+									"                \"first_name\": {\"type\": \"string\"},",
+									"                \"last_name\": {\"type\": \"string\"},",
+									"                \"email\": {\"type\": \"string\"},",
+									"                \"is_subscribed\": {\"type\": \"boolean\"}",
+									"            },",
+									"            \"required\": [\"id\", \"username\", \"first_name\", \"last_name\", \"email\"],",
+									"            \"additionalProperties\": false",
+									"        },",
+									"        \"ingredients\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"measurement_unit\": {\"type\": \"string\"},",
+									"                    \"amount\": {\"type\": \"number\"}",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"measurement_unit\", \"amount\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        },",
+									"        \"is_favorited\": {\"type\": \"boolean\"},",
+									"        \"is_in_shopping_cart\": {\"type\": \"boolean\"},",
+									"        \"name\": {\"type\": \"string\"},",
+									"        \"image\": {\"type\": \"string\"},",
+									"        \"text\": {\"type\": \"string\"},",
+									"        \"cooking_time\": {\"type\": \"number\"}",
+									"    },",
+									"    \"required\": [",
+									"        \"id\", \"tags\", \"author\", \"ingredients\", \"is_favorited\", \"is_in_shopping_cart\",",
+									"        \"name\", \"image\", \"text\", \"cooking_time\"",
+									"    ],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [\n    {{secondTagId}}\n  ],\n  \"image\": \"iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто съедобное (пробовать на свой страх и риск)\",\n  \"text\": \"Приготовьте как нибудь эти ингридиеты, не забудьте посолить.\",\n  \"cooking_time\": 12\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipeId}}",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Token {{secondUserToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "subscriptions",
+			"item": [
+				{
+					"name": "subscribe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"username\": {\"type\": \"string\"},",
+									"        \"first_name\": {\"type\": \"string\"},",
+									"        \"last_name\": {\"type\": \"string\"},",
+									"        \"email\": {\"type\": \"string\"},",
+									"        \"is_subscribed\": {\"type\": \"boolean\"},",
+									"        \"recipes_count\": {\"type\": \"number\"},",
+									"        \"recipes\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"name\": {\"type\": \"string\"},",
+									"                    \"image\": {\"type\": \"string\"},",
+									"                    \"cooking_time\": {\"type\": \"number\"}",
+									"                },",
+									"                \"required\": [\"id\", \"name\", \"image\", \"cooking_time\"],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        }",
+									"    },",
+									"    \"required\": [",
+									"        \"id\", \"username\", \"first_name\", \"last_name\", \"email\",",
+									"        \"is_subscribed\", \"recipes\", \"recipes_count\"",
+									"    ],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{secondUserId}}/subscribe/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{secondUserId}}",
+								"subscribe",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "subscriptions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\":{",
+									"        \"count\": {\"type\": \"number\"},",
+									"        \"next\": {\"type\": [\"number\", \"null\"]},",
+									"        \"previous\": {\"type\": [\"number\", \"null\"]},",
+									"        \"results\": {",
+									"            \"type\": \"array\",",
+									"            \"items\": {",
+									"                \"type\": \"object\",",
+									"                \"properties\": {",
+									"                    \"id\": {\"type\": \"number\"},",
+									"                    \"username\": {\"type\": \"string\"},",
+									"                    \"first_name\": {\"type\": \"string\"},",
+									"                    \"last_name\": {\"type\": \"string\"},",
+									"                    \"email\": {\"type\": \"string\"},",
+									"                    \"is_subscribed\": {\"type\": \"boolean\"},",
+									"                    \"recipes_count\": {\"type\": \"number\"},",
+									"                    \"recipes\": {",
+									"                        \"type\": \"array\",",
+									"                        \"items\": {",
+									"                            \"type\": \"object\",",
+									"                            \"properties\": {",
+									"                                \"id\": {\"type\": \"number\"},",
+									"                                \"name\": {\"type\": \"string\"},",
+									"                                \"image\": {\"type\": \"string\"},",
+									"                                \"cooking_time\": {\"type\": \"number\"}",
+									"                            },",
+									"                            \"required\": [\"id\", \"name\", \"image\", \"cooking_time\"],",
+									"                            \"additionalProperties\": false",
+									"                        }",
+									"                    }",
+									"                },",
+									"                \"required\": [",
+									"                    \"id\", \"username\", \"first_name\", \"last_name\", \"email\",",
+									"                    \"is_subscribed\", \"recipes\", \"recipes_count\"",
+									"                ],",
+									"                \"additionalProperties\": false",
+									"            }",
+									"        }",
+									"    },",
+									"    \"required\": [\"count\", \"next\", \"previous\", \"results\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/subscriptions/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"subscriptions",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unsubscribe",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа - 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/{{secondUserId}}/subscribe/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"{{secondUserId}}",
+								"subscribe",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Token {{userToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "shopping_cart",
+			"item": [
+				{
+					"name": "add_to_shopping_cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const responseSchema = {",
+									"    \"type\": \"object\",",
+									"    \"properties\": {",
+									"        \"id\": {\"type\": \"number\"},",
+									"        \"name\": {\"type\": \"string\"},",
+									"        \"image\": {\"type\": \"string\"},",
+									"        \"cooking_time\": {\"type\": \"number\"}",
+									"    },",
+									"    \"required\": [\"id\", \"name\", \"image\", \"cooking_time\"],",
+									"    \"additionalProperties\": false",
+									"};",
+									"",
+									"pm.test(\"Статус-код ответа - 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"pm.test('Структура ответа соответствует ожидаемой', function () {",
+									"    pm.response.to.have.jsonSchema(responseSchema);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipeId}}",
+								"shopping_cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download_shopping_cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа - 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/download_shopping_cart/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"download_shopping_cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove_from_shopping_cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа - 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipeId}}",
+								"shopping_cart",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Token {{userToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "favorite",
+			"item": [
+				{
+					"name": "add_to_favorite",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipeId}}",
+								"favorite",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "remove_from_favorite",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Статус-код ответа - 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"recipes",
+								"{{recipeId}}",
+								"favorite",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "apikey",
+				"apikey": [
+					{
+						"key": "value",
+						"value": "Token {{userToken}}",
+						"type": "string"
+					},
+					{
+						"key": "key",
+						"value": "Authorization",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "delete_recipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Статус-код ответа - 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token {{secondUserToken}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": 1123,\n      \"amount\": 10\n    }\n  ],\n  \"tags\": [\n    1,\n    2\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"string\",\n  \"text\": \"string\",\n  \"cooking_time\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"recipes",
+						"{{recipeId}}",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Статус-код ответа - 204\", function () {",
+							"    pm.response.to.have.status(204);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Token {{userToken}}",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/api/auth/token/logout/",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"token",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://127.0.0.1:8000",
+			"type": "string"
+		},
+		{
+			"key": "username",
+			"value": "\"vasya.pupkin\"",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "\"MySecretPas$word\"\n",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "\"vpupkin@yandex.ru\"",
+			"type": "string"
+		},
+		{
+			"key": "userToken",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "secondUserId",
+			"value": ""
+		},
+		{
+			"key": "tag_id",
+			"value": ""
+		},
+		{
+			"key": "first_tag_id",
+			"value": ""
+		},
+		{
+			"key": "second_tag_id",
+			"value": ""
+		},
+		{
+			"key": "first_indredient_id",
+			"value": ""
+		},
+		{
+			"key": "second_indredient_id",
+			"value": ""
+		},
+		{
+			"key": "secondUserEmail",
+			"value": "\"second_user@email.org\"",
+			"type": "string"
+		},
+		{
+			"key": "secondUserUsername",
+			"value": "\"second-user\"",
+			"type": "string"
+		},
+		{
+			"key": "secondUserToken",
+			"value": ""
+		},
+		{
+			"key": "firstIndredientId",
+			"value": ""
+		},
+		{
+			"key": "secondIndredientId",
+			"value": ""
+		},
+		{
+			"key": "firstTagId",
+			"value": ""
+		},
+		{
+			"key": "secondTagId",
+			"value": ""
+		},
+		{
+			"key": "recipeId",
+			"value": ""
+		}
+	]
+}

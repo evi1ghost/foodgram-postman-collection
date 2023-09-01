@@ -8141,14 +8141,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/shopping_cart/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"shopping_cart",
 										""
 									]
@@ -8243,14 +8243,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/shopping_cart/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"shopping_cart",
 										""
 									]
@@ -8295,14 +8295,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/shopping_cart/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"shopping_cart",
 										""
 									]
@@ -8459,14 +8459,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/favorite/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"favorite",
 										""
 									]
@@ -8504,14 +8504,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/favorite/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"favorite",
 										""
 									]
@@ -8556,14 +8556,14 @@
 								"method": "POST",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/favorite/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"favorite",
 										""
 									]
@@ -9259,14 +9259,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+											"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/shopping_cart/",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"recipes",
-												"{{recipeId}}",
+												"{{firstRecipeId}}",
 												"shopping_cart",
 												""
 											]
@@ -9311,14 +9311,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+											"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/shopping_cart/",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"recipes",
-												"{{recipeId}}",
+												"{{firstRecipeId}}",
 												"shopping_cart",
 												""
 											]
@@ -9417,14 +9417,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/shopping_cart/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/shopping_cart/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"shopping_cart",
 										""
 									]
@@ -9517,14 +9517,14 @@
 										"method": "DELETE",
 										"header": [],
 										"url": {
-											"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+											"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/favorite/",
 											"host": [
 												"{{baseUrl}}"
 											],
 											"path": [
 												"api",
 												"recipes",
-												"{{recipeId}}",
+												"{{firstRecipeId}}",
 												"favorite",
 												""
 											]
@@ -9623,14 +9623,14 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{baseUrl}}/api/recipes/{{recipeId}}/favorite/",
+									"raw": "{{baseUrl}}/api/recipes/{{firstRecipeId}}/favorite/",
 									"host": [
 										"{{baseUrl}}"
 									],
 									"path": [
 										"api",
 										"recipes",
-										"{{recipeId}}",
+										"{{firstRecipeId}}",
 										"favorite",
 										""
 									]
@@ -10190,10 +10190,6 @@
 			"type": "string"
 		},
 		{
-			"key": "userToken",
-			"value": ""
-		},
-		{
 			"key": "firstIngredientAmount",
 			"value": "10",
 			"type": "string"
@@ -10204,35 +10200,6 @@
 			"type": "string"
 		},
 		{
-			"key": "userId",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"key": "secondUserId",
-			"value": ""
-		},
-		{
-			"key": "tag_id",
-			"value": ""
-		},
-		{
-			"key": "first_tag_id",
-			"value": ""
-		},
-		{
-			"key": "second_tag_id",
-			"value": ""
-		},
-		{
-			"key": "first_indredient_id",
-			"value": ""
-		},
-		{
-			"key": "second_indredient_id",
-			"value": ""
-		},
-		{
 			"key": "secondUserEmail",
 			"value": "\"second_user@email.org\"",
 			"type": "string"
@@ -10241,74 +10208,6 @@
 			"key": "secondUserUsername",
 			"value": "\"second-user\"",
 			"type": "string"
-		},
-		{
-			"key": "secondUserToken",
-			"value": ""
-		},
-		{
-			"key": "firstIndredientId",
-			"value": ""
-		},
-		{
-			"key": "secondIndredientId",
-			"value": ""
-		},
-		{
-			"key": "firstTagId",
-			"value": ""
-		},
-		{
-			"key": "secondTagId",
-			"value": ""
-		},
-		{
-			"key": "recipeId",
-			"value": ""
-		},
-		{
-			"key": "ingredientNameFirstLatter",
-			"value": ""
-		},
-		{
-			"key": "ingredientName",
-			"value": ""
-		},
-		{
-			"key": "firstRecipeId",
-			"value": ""
-		},
-		{
-			"key": "secondRecipeId",
-			"value": ""
-		},
-		{
-			"key": "thirdRecipeId",
-			"value": ""
-		},
-		{
-			"key": "fourthRecipeId",
-			"value": ""
-		},
-		{
-			"key": "thirdTagId",
-			"value": ""
-		},
-		{
-			"key": "firstTagSlug",
-			"value": ""
-		},
-		{
-			"key": "secondTagSlug",
-			"value": ""
-		},
-		{
-			"key": "thirdTagSlug",
-			"value": ""
-		},
-		{
-			"key": "fifthRecipeId",
-			"value": ""
 		},
 		{
 			"key": "tooLongName",
@@ -10323,11 +10222,6 @@
 		{
 			"key": "thirdUserUsername",
 			"value": "\"third-user-username\"",
-			"type": "string"
-		},
-		{
-			"key": "thirdUserId",
-			"value": "",
 			"type": "string"
 		}
 	]

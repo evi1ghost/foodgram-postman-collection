@@ -23,7 +23,7 @@ echo "from django.contrib.auth import get_user_model; User = get_user_model(); \
      exit(1) if not delete_num else exit(0);" | $python manage.py shell
 status=$?;
 if [ $status -ne 0 ]; then
-    echo "Не удалось удалить пользователей, создаваемых при запуске postman-коллекции. Объекты отсутствуют либо произошел сбой.";
+    echo "Ошибка при удалении записей, созданных в БД на предыдущем запуске postman-коллекции: объекты отсутствуют либо произошел сбой.";
     exit $status;
 fi
 echo "База данных очищена."

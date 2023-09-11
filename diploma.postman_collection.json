@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "21d784fb-62b7-4290-a92e-eb9cace6ab99",
+		"_postman_id": "5e4a30b9-40f0-46bf-9485-7a23bb1e37cd",
 		"name": "diploma",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16131548"
@@ -36,7 +36,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на регистрацию нового пользователя с корректными данными возвращает ответ со статус-кодом 201\"",
+											"        \"Убедитесь, что запроc на регистрацию нового пользователя, содержащий корректные данные, возвращает ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const userId = _.get(responseData, \"id\");",
 											"    if (userId) {",
@@ -104,7 +104,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на регистрацию нового пользователя с корректными данными возвращает ответ со статус-кодом 201\"",
+											"        \"Убедитесь, что запроc на регистрацию нового пользователя, содержащий корректные данные, возвращает ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const userId = _.get(responseData, \"id\");",
 											"    if (userId) {",
@@ -172,7 +172,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на регистрацию нового пользователя с корректными данными возвращает ответ со статус-кодом 201\"",
+											"        \"Убедитесь, что запроc на регистрацию нового пользователя, содержащий корректные данные, возвращает ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const userId = _.get(responseData, \"id\");",
 											"    if (userId) {",
@@ -241,7 +241,7 @@
 											"pm.test(\"Статус-код ответа должен быть 200\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на получение токена с корректными данными возвращает ответ со статус-кодом 200\"",
+											"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
 											"pm.test('Структура ответа соответствует ожидаемой', function () {",
@@ -307,7 +307,7 @@
 											"pm.test(\"Статус-код ответа должен быть 200\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на получение токена с корректными данными возвращает ответ со статус-кодом 200\"",
+											"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
 											"pm.test('Структура ответа соответствует ожидаемой', function () {",
@@ -368,7 +368,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос на регистрацию нового пользователя без данных для поля `email` должен вернуть ответ со статус-кодом 400\"",
+											"        \"Убедитесь, что если в запросе на регистрацию нового пользователя не передан `email` - возвращается ответ со статус-кодом 400\"",
 											"    ).to.be.eql(\"Bad Request\");",
 											"});",
 											""
@@ -416,7 +416,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос на регистрацию нового пользователя без данных для поля `username` должен вернуть ответ со статус-кодом 400\"",
+											"        \"Убедитесь, что если в запросе на регистрацию нового пользователя не передан `username`- возвращается ответ со статус-кодом 400\"",
 											"    ).to.be.eql(\"Bad Request\");",
 											"});",
 											""
@@ -464,7 +464,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос на регистрацию нового пользователя без данных для поля `first_name` должен вернуть ответ со статус-кодом 400\"",
+											"        \"Убедитесь, что если в запросе на регистрацию нового пользователя не передан `first_name` - возвращается ответ со статус-кодом 400\"",
 											"    ).to.be.eql(\"Bad Request\");",
 											"});",
 											""
@@ -512,7 +512,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос на регистрацию нового пользователя без данных для поля `last_name` должен вернуть ответ со статус-кодом 400\"",
+											"        \"Убедитесь, что если в запросе на регистрацию нового пользователя не передан `last_name` - возвращается ответ со статус-кодом 400\"",
 											"    ).to.be.eql(\"Bad Request\");",
 											"});",
 											""
@@ -560,7 +560,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос на регистрацию нового пользователя без данных для поля `password` должен вернуть ответ со статус-кодом 400\"",
+											"        \"Убедитесь, что если в запросе на регистрацию нового пользователя не передан `password` - возвращается ответ со статус-кодом 400\"",
 											"    ).to.be.eql(\"Bad Request\");",
 											"});",
 											""
@@ -834,53 +834,6 @@
 							"response": []
 						},
 						{
-							"name": "user_registration_me_as_username",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
-											"    pm.expect(",
-											"        pm.response.status,",
-											"        \"При попытке использовать `me` в качестве `username` должен вернуться ответ со статусом 400\"",
-											"    ).to.be.eql(\"Bad Request\")",
-											"});"
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "noauth"
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n    \"username\": \"me\",\n    \"email\": \"me-username@user.ru\",\n    \"first_name\": \"me\",\n    \"last_name\": \"Forbidden\",\n    \"password\": {{password}}\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{baseUrl}}/api/users/",
-									"host": [
-										"{{baseUrl}}"
-									],
-									"path": [
-										"api",
-										"users",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
 							"name": "user_registration_email_in_use",
 							"event": [
 								{
@@ -890,7 +843,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Если запрос содержит `email` зарегистрированного пользователя - должен вернуться ответ со статусом 400\"",
+											"        \"Если при регистрации нового пользователя в запрос передан `email` зарегистрированного пользователя - должен вернуться ответ со статусом 400\"",
 											"    ).to.be.eql(\"Bad Request\")",
 											"});"
 										],
@@ -937,7 +890,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Если запрос содержит `username` зарегистрированного пользователя - должен вернуться ответ со статусом 400\"",
+											"        \"Если при регистрации нового пользователя в запросе передан `username` зарегистрированного пользователя - должен вернуться ответ со статусом 400\"",
 											"    ).to.be.eql(\"Bad Request\")",
 											"});"
 										],
@@ -1195,7 +1148,7 @@
 											"pm.test(\"Статус-код ответа должен быть 200\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на получение токена с корректными данными возвращает ответ со статус-кодом 200\"",
+											"        \"Убедитесь, что запроc на получение токена, содержащий корректные данные, возвращает ответ со статус-кодом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
 											"pm.test('Структура ответа соответствует ожидаемой', function () {",
@@ -1317,7 +1270,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});"
@@ -1389,7 +1342,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});"
@@ -1473,12 +1426,12 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});",
 											"pm.test(",
-											"    \"Должна быть возможность изменить количество объектов на странице через параметр `limit`\",",
+											"    \"Убедитесь, что можно изменить количество объектов на странице через параметр `limit`\",",
 											"    function () {",
 											"        const limit = Number(pm.request.url.query.get(\"limit\"));",
 											"        const responseData = pm.response.json();",
@@ -1824,7 +1777,7 @@
 											"pm.test(\"Статус-код ответа должен быть 200\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Убедитесь, что запроc на получение токена с паролем, измененным через запрос к `api/users/set_password/`, возвращает ответ со статусом 200\"",
+											"        \"Убедитесь, что после изменения пароля через запрос к `api/users/set_password/`, запроc на получение токена с новым паролем возвращает ответ со статусом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
 											"pm.test('Структура ответа соответствует ожидаемой', function () {",
@@ -2045,7 +1998,7 @@
 											"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Если поле `current_password` содержит неправильный пароль должен вернуться ответ со статусом 400\"",
+											"        \"Если поле `current_password` содержит неправильный пароль - должен вернуться ответ со статусом 400\"",
 											"    ).to.be.eql(\"Bad Request\");",
 											"});"
 										],
@@ -2214,7 +2167,7 @@
 											"        \"Запрос зарегистрированного пользователя должен вернуть ответ со статус-кодом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
-											"pm.test('Структура ответа должен соответствовать ожидаемой', function () {",
+											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"    pm.expect(",
 											"        responseData.length >= 3,",
@@ -2802,7 +2755,7 @@
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"    pm.expect(",
 											"        responseData.length >= 2,",
-											"        \"Создайте как минимум два ингредиента для корректной работы коллекции запросов\"",
+											"        \"Создайте в БД как минимум два ингредиента для корректной работы коллекции запросов\"",
 											"    )",
 											"    pm.collectionVariables.set(\"firstIndredientId\", responseData[0].id);",
 											"    pm.collectionVariables.set('ingredientNameFirstLatter', responseData[0].name.slice(0,1))",
@@ -3144,7 +3097,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Капуста квашенная\",\n    \"measurement_unit\": \"кг\"\n}",
+									"raw": "{\n    \"name\": \"Капуста квашеная\",\n    \"measurement_unit\": \"кг\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3442,7 +3395,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на создание рецепта с корректными данными должен вернуть ответ со статус-кодом 201\"",
+											"        \"Запрос зарегистрированного пользователя на создание рецепта, содержащий корректные данные, должен вернуть ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const recipeId = _.get(responseData, \"id\");",
 											"    if (recipeId) {",
@@ -3462,7 +3415,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": {{firstIngredientAmount}}\n    },\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": {{secondIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто съедобное (это не точно)\",\n  \"text\": \"Приготовьте как нибудь эти ингридиеты\",\n  \"cooking_time\": 5\n}",
+									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": {{firstIngredientAmount}}\n    },\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": {{secondIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто съедобное (это не точно)\",\n  \"text\": \"Приготовьте как нибудь эти ингредиеты\",\n  \"cooking_time\": 5\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3553,7 +3506,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на создание рецепта с корректными данными должен вернуть ответ со статус-кодом 201\"",
+											"        \"Запрос на создание рецепта, содержащий корректные данные и отправленный зарегистрированным пользователем, должен вернуть ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const recipeId = _.get(responseData, \"id\");",
 											"    if (recipeId) {",
@@ -3664,7 +3617,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на создание рецепта с корректными данными должен вернуть ответ со статус-кодом 201\"",
+											"        \"Запрос на создание рецепта, содержащий корректные данные и отправленный зарегистрированным пользователем, должен вернуть ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const recipeId = _.get(responseData, \"id\");",
 											"    if (recipeId) {",
@@ -3775,7 +3728,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на создание рецепта с корректными данными должен вернуть ответ со статус-кодом 201\"",
+											"        \"Запрос на создание рецепта, содержащий корректные данные и отправленный зарегистрированным пользователем, должен вернуть ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const recipeId = _.get(responseData, \"id\");",
 											"    if (recipeId) {",
@@ -3795,7 +3748,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": {{secondIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто жаренное\",\n  \"text\": \"Жарить 10 минут\",\n  \"cooking_time\": 10\n}",
+									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": {{secondIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто жареное\",\n  \"text\": \"Жарить 10 минут\",\n  \"cooking_time\": 10\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3886,7 +3839,7 @@
 											"pm.test(\"Статус-код ответа должен быть 201\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на создание рецепта с корректными данными должен вернуть ответ со статус-кодом 201\"",
+											"        \"Запрос на создание рецепта, содержащий корректные данные и отправленный зарегистрированным пользователем, должен вернуть ответ со статус-кодом 201\"",
 											"    ).to.be.eql(\"Created\");",
 											"    const recipeId = _.get(responseData, \"id\");",
 											"    if (recipeId) {",
@@ -3921,7 +3874,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": {{secondIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Вареное нечто\",\n  \"text\": \"Варить 20 минут\",\n  \"cooking_time\": 25\n}",
+									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{secondIndredientId}},\n      \"amount\": {{secondIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Варёное нечто\",\n  \"text\": \"Варить 20 минут\",\n  \"cooking_time\": 25\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -4071,7 +4024,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});"
@@ -4189,7 +4142,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});"
@@ -4319,7 +4272,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});",
@@ -4466,7 +4419,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});",
@@ -4620,7 +4573,7 @@
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",
 											"    pm.expect(",
 											"        pm.response,",
-											"        \"Убедитесь, что для данного эндпоинта корректно настроена пагинация\"",
+											"        \"Убедитесь, что для запрошенного эндпоинта корректно настроена пагинация\"",
 											"    ).to.have.jsonSchema({\"type\": \"object\"});",
 											"    pm.response.to.have.jsonSchema(responseSchema);",
 											"});",
@@ -5008,7 +4961,7 @@
 											"pm.test(\"Статус-код ответа должен быть 200\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на редактирование рецепта с корректными данными должен вернуть ответ со статус-кодом 200\"",
+											"        \"Запрос на редактирование рецепта, содержащий  корректные данные и отправленный зарегистрированным пользователем, должен вернуть ответ со статус-кодом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
 											"pm.test('Структура ответа соответствует ожидаемой', function () {",
@@ -5039,7 +4992,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто съедобное (пробовать на свой страх и риск)\",\n  \"text\": \"Приготовьте как нибудь эти ингридиеты, не забудьте посолить.\",\n  \"cooking_time\": 12\n}",
+									"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нечто съедобное (пробовать на свой страх и риск)\",\n  \"text\": \"Приготовьте как нибудь эти ингредиеты, не забудьте посолить.\",\n  \"cooking_time\": 12\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -5079,7 +5032,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если в запросе на создание рецепта отсутствует поле `ingredients` должен вернуться ответ со статусом 400\"",
+													"        \"Если в запросе на создание рецепта отсутствует поле `ingredients` - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5138,7 +5091,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если запрос на создание рецепта содержит пустое поле `ingredients` должен вернуться ответ со статусом 400\"",
+													"        \"Если запрос на создание рецепта содержит пустое поле `ingredients` - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5197,7 +5150,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если в запросе на создание рецепта указан несуществующий ингредиент должен вернуться ответ со статусом 400\"",
+													"        \"Если в запросе на создание рецепта указан несуществующий ингредиент - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5256,7 +5209,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если в запросе на создание рецепта указано количество ингредиента меньше 1 должен вернуться ответ со статусом 400\"",
+													"        \"Если в запросе на создание рецепта указано количество ингредиента меньше 1 - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5284,7 +5237,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n  {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 0\n  }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Неправильный рецепт\",\n  \"text\": \"А ингредиенты я не скажу!\",\n  \"cooking_time\": 15\n}",
+											"raw": "{\n  \"ingredients\": [\n  {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 0\n  }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Некорректное количество ингредиента\",\n  \"text\": \"Возьмите ноль ингредиента...\",\n  \"cooking_time\": 15\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -5315,7 +5268,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если запрос на создание рецепта содержит повторяющиеся ингредиенты должен вернуться ответ со статусом 400\"",
+													"        \"Если запрос на создание рецепта содержит повторяющиеся ингредиенты - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5374,7 +5327,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если в запросе на создание рецепта отсутствует поле `tags` должен вернуться ответ со статусом 400\"",
+													"        \"Если в запросе на создание рецепта отсутствует поле `tags` - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5433,7 +5386,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если запрос на создание рецепта содержит пустое поле `tags` должен вернуться ответ со статусом 400\"",
+													"        \"Если запрос на создание рецепта содержит пустое поле `tags` - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5492,7 +5445,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Если в запросе на создание рецепта содержит повторяющиеся теги должен вернуться ответ со статусом 400\"",
+													"        \"Если в запросе на создание рецепта содержит повторяющиеся теги - должен вернуться ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -5815,7 +5768,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": {{firstIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"\",\n  \"text\": \"Безымянный рецепт\",\n  \"cooking_time\": 5\n}",
+											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": {{firstIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"\",\n  \"text\": \"Название не укажу\",\n  \"cooking_time\": 5\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -6360,7 +6313,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Запрос автора на обновление рецепта без поля `ingredients` должен вернуть ответ со статусом 400\"",
+													"        \"Запрос автора на обновление рецепта без поля `ingredients` - должен вернуть ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -6420,7 +6373,7 @@
 													"pm.test(\"Статус-код ответа должен быть 400\", function () {",
 													"    pm.expect(",
 													"        pm.response.status,",
-													"        \"Запрос автора на обновление рецепта с пустым полем `ingredients` должен вернуть ответ со статусом 400\"",
+													"        \"Запрос автора на обновление рецепта с пустым полем `ingredients` - должен вернуть ответ со статусом 400\"",
 													"    ).to.be.eql(\"Bad Request\");",
 													"});"
 												],
@@ -6569,7 +6522,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n  {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 0\n  }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Рецепт с некорректным количеством ингредиентов\",\n  \"text\": \"Проверка валидации количества ингредиентов\",\n  \"cooking_time\": 15\n}",
+											"raw": "{\n  \"ingredients\": [\n  {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 0\n  }\n  ],\n  \"tags\": [\n    {{firstTagId}},\n    {{secondTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Рецепт с некорректным количеством ингридиента\",\n  \"text\": \"Проверка валидации количества ингредиента\",\n  \"cooking_time\": 15\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -6689,7 +6642,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нет поля с ингредиентами\",\n  \"text\": \"Ингредиенты не указаны\",\n  \"cooking_time\": 12\n}",
+											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нет поля с тегами\",\n  \"text\": \"Теги не указаны\",\n  \"cooking_time\": 12\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -6749,7 +6702,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нет поля с ингредиентами\",\n  \"text\": \"Ингредиенты не указаны\",\n  \"cooking_time\": 12\n}",
+											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Пустое поле с тегами\",\n  \"text\": \"Теги не указаны\",\n  \"cooking_time\": 12\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -6809,7 +6762,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [\n      9876\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Нет поля с ингредиентами (обновление)\",\n  \"text\": \"Ингредиенты не указаны\",\n  \"cooking_time\": 12\n}",
+											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": 25\n    }\n  ],\n  \"tags\": [\n      9876\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Несуществующий тег\",\n  \"text\": \"Несуществующие тег\",\n  \"cooking_time\": 12\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7169,7 +7122,7 @@
 										"header": [],
 										"body": {
 											"mode": "raw",
-											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": {{firstIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Некорректное время готовки\",\n  \"text\": \"Некорректное время готовки\",\n  \"cooking_time\": \"\"\n}",
+											"raw": "{\n  \"ingredients\": [\n    {\n      \"id\": {{firstIndredientId}},\n      \"amount\": {{firstIngredientAmount}}\n    }\n  ],\n  \"tags\": [\n    {{firstTagId}}\n  ],\n  \"image\": \"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABAgMAAABieywaAAAACVBMVEUAAAD///9fX1/S0ecCAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAACklEQVQImWNoAAAAggCByxOyYQAAAABJRU5ErkJggg==\",\n  \"name\": \"Некорректное время готовки (пустая строка)\",\n  \"text\": \"Некорректное время готовки\",\n  \"cooking_time\": \"\"\n}",
 											"options": {
 												"raw": {
 													"language": "json"
@@ -7820,7 +7773,7 @@
 											"pm.test(\"Статус-код ответа должен быть 200\", function () {",
 											"    pm.expect(",
 											"        pm.response.status,",
-											"        \"Запрос зарегистрированного пользователя на получение перечня подписок должен возвращать ответ со статус-кодом 200\"",
+											"        \"Запрос зарегистрированного пользователя на получение перечня подписок должен вернуть ответ со статус-кодом 200\"",
 											"    ).to.be.eql(\"OK\");",
 											"});",
 											"pm.test('Структура ответа должна соответствовать ожидаемой', function () {",

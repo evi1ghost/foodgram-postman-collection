@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5e4a30b9-40f0-46bf-9485-7a23bb1e37cd",
+		"_postman_id": "5af19dc6-dd3f-42f1-ac53-33bb3a82df28",
 		"name": "diploma",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "16131548"
@@ -3241,7 +3241,7 @@
 							"response": []
 						},
 						{
-							"name": "patch_ingredient // User Copy",
+							"name": "delete_ingredient // User",
 							"event": [
 								{
 									"listen": "test",
